@@ -1,50 +1,111 @@
-⏰ Render Login Ping Cron Job Setup
+# ⏰ Render Keep‑Alive Cron Job Setup (Sampark Project)
 
-This cron job is configured using cron-job.org to periodically ping the application login endpoint and prevent the Render free-tier service from going idle.
+## 📌 Overview
 
-📌 Purpose
+This README explains how to configure a cron job using **cron-job.org**
+to keep the **Sampark application** awake on Render free tier by pinging
+the login endpoint every **14 minutes**.
 
-Render’s free-tier services may go to sleep after inactivity.
-To keep the application active, a scheduled request is sent every 14 minutes to the login endpoint.
+Render free-tier services automatically sleep after inactivity. This
+scheduler prevents cold starts and ensures the application stays
+responsive.
 
-🔗 Ping URL
-https://samaprk.onrender.com/login
-🕒 Schedule
+------------------------------------------------------------------------
 
-The cron job runs every 14 minutes.
+## 🌐 Application Endpoint
 
-Example cron expression:
-
-*/14 * * * *
-⚙️ Configuration Steps (cron-job.org)
-Go to https://console.cron-job.org/
-Login to your account
-Click Create Cronjob
-
-Configure:
-
-Title
-
-Render Login Ping
-
-URL
+Ping URL:
 
 https://samaprk.onrender.com/login
 
-Schedule
+This endpoint is triggered automatically every 14 minutes.
 
-Every 14 minutes
-Save the cron job ✅
-📡 Expected Behavior
-Sends HTTP request every 14 minutes
-Keeps Render service active
-Reduces cold start delays
-Improves application responsiveness
-🛠 Use Case
+------------------------------------------------------------------------
 
-Useful for:
+## 🕒 Schedule Configuration
 
-Render free-tier apps
-Demo environments
-Portfolio projects
-Spring Boot / JSP hosted apps like Sampark
+Cron Expression:
+
+*/14 * \* \* \*
+
+Meaning:
+
+Runs once every 14 minutes continuously throughout the day.
+
+------------------------------------------------------------------------
+
+## ⚙️ Cron Job Platform
+
+Scheduler used:
+
+https://console.cron-job.org/
+
+This service allows automated HTTP endpoint triggering at defined
+intervals.
+
+------------------------------------------------------------------------
+
+## 🚀 Setup Instructions
+
+Follow these steps:
+
+1.  Open https://console.cron-job.org/
+2.  Login or create an account
+3.  Click **Create Cronjob**
+4.  Enter details below:
+
+Title: Render Login Ping
+
+URL: https://samaprk.onrender.com/login
+
+Schedule: Every 14 minutes
+
+Cron Expression (Advanced Mode): */14 * \* \* \*
+
+5.  Save the cron job
+
+Setup completed successfully ✅
+
+------------------------------------------------------------------------
+
+## 📡 Expected Behavior
+
+After configuration:
+
+• Sends HTTP request every 14 minutes\
+• Prevents Render service sleep\
+• Reduces cold-start delays\
+• Keeps application demo-ready 24×7
+
+------------------------------------------------------------------------
+
+## 🛠 Use Cases
+
+Recommended for:
+
+• Render free-tier deployments\
+• Portfolio projects\
+• Spring Boot applications\
+• JSP-based applications\
+• Recruiter demonstrations\
+• Continuous uptime monitoring
+
+------------------------------------------------------------------------
+
+## 📍 Project Details
+
+Application Name: Sampark
+
+Deployment Platform: Render
+
+Scheduler: cron-job.org
+
+Ping Frequency: Every 14 minutes
+
+------------------------------------------------------------------------
+
+## ✅ Result
+
+With this cron scheduler active, the **Sampark application stays awake
+continuously**, ensuring faster response time and smoother
+demonstrations without Render sleep interruptions.
